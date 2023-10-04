@@ -1,0 +1,28 @@
+.header{
+    background-color: blue;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 2em;
+    margin-left: 10px;   
+}
+
+.add-new-book{
+    margin-right: 10px;
+}
+
+dialog {
+    margin-top: 40%;
+    height: 40%;
+    width: 40%;
+}
+
+.book-display{
+    display: flex;
+    border: 1px solid black;
+    grid-template-columns: ;
+}
