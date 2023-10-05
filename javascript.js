@@ -13,7 +13,7 @@ const addNewBookButton = document.querySelector('.add-new-book');
 const modal = document.querySelector('.add-new-book-dialog');
 const closeNewBook = document.querySelector('.close-new-book');
 var form = document.getElementById('form');
-
+var gridContainer = document.querySelector(".grid-container");
 
 
 addNewBookButton.addEventListener('click', () =>{
@@ -31,12 +31,59 @@ form.addEventListener('submit', (event) =>{
     let name = document.getElementById('name-of-author').value;
     let nameOfBook = document.getElementById('name-of-book').value;
     let numberOfPages =document.getElementById('number-of-pages').value;
+
+    if (numberOfPages == ""){numberOfPages = "0";}
+    
+
     let didYouRead = document.getElementById('did-you-read').checked;
 
     let tempBook = new Book(name, nameOfBook, numberOfPages, didYouRead);
     library.push(tempBook);
 
 
+    // Vizualiziranje librarija
+    gridContainer.replaceChildren();
+    
+    library.forEach(element => {
+        var div = document.createElement("div");
+        var input = document.createElement("div");
+        var input1= document.createElement("div");
+        var input2 = document.createElement("div");
+
+        input.appendChild(document.createTextNode(element.nameOfAuthor + " "));
+        input.classList.add("name-of-author");
+        div.appendChild(input);
+        
+
+        input1.appendChild(document.createTextNode(element.nameOfBook + " "));
+        input1.classList.add("name-of-book");
+        div.appendChild(input1);
+        
+
+        input2.appendChild(document.createTextNode(element.numberOfPages));
+        div.appendChild(input2);
+        input2.classList.add("number-of-pages");
+        
+        
+
+
+
+
+
+        div.classList.add("parent");
+        gridContainer.appendChild(div);
+    });
+
+
+
+
+
+
+
+
     form.reset();
     modal.open = false;
 })
+
+
+

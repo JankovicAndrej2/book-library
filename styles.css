@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'hankenbook';
+    src: url(fonts/hanken-book-webfont.woff2) format('woff2'),
+         url(fonts/hanken-book-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .header{
     background-color: blue;
     height: 4em;
@@ -21,8 +30,54 @@ dialog {
     width: 40%;
 }
 
-.book-display{
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 16vw);
+    grid-template-rows: repeat(1, 1fr);
+    border: 1px solid black;
+    gap: 5vw;
+    margin-top: 30px;
+    
+}
+
+.grid-container> div{
     display: flex;
     border: 1px solid black;
-    grid-template-columns: ;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3em;
+    padding-top: 10px;
+    font-family: "hankenbook", sans-serif;
+    max-width: 100%;
+    text-align-last: center;
+    
 }
+
+.name-of-author{
+    
+    
+}
+.name-of-book{
+    
+}
+
+.number-of-pages{
+    margin-bottom: 10px;
+    
+}
+
+.number-of-pages::after{
+    content: " pages";
+}
+
+.parent
+{
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+
