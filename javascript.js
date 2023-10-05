@@ -49,6 +49,7 @@ form.addEventListener('submit', (event) =>{
         var input = document.createElement("div");
         var input1= document.createElement("div");
         var input2 = document.createElement("div");
+        var buttons = document.createElement("div");
 
         input.appendChild(document.createTextNode(element.nameOfAuthor + " "));
         input.classList.add("name-of-author");
@@ -64,9 +65,25 @@ form.addEventListener('submit', (event) =>{
         div.appendChild(input2);
         input2.classList.add("number-of-pages");
         
+
+
+
+        var deleteButton = document.createElement("button");
+        var editButton = document.createElement("button");
         
+        buttons.classList.add("buttons");
+        deleteButton.classList.add("delete-button");
+        editButton.classList.add("edit-button");
 
+        deleteButton.textContent = "Delete";
+        editButton.textContent = "Edit";
 
+        
+        
+        buttons.appendChild(editButton);
+        buttons.appendChild(deleteButton);
+
+        div.appendChild(buttons);
 
 
 
