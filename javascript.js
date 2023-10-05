@@ -44,7 +44,7 @@ form.addEventListener('submit', (event) =>{
     // Vizualiziranje librarija
     gridContainer.replaceChildren();
     
-    library.forEach(element => {
+    library.forEach((element, index) => {
         var div = document.createElement("div");
         var input = document.createElement("div");
         var input1= document.createElement("div");
@@ -72,13 +72,14 @@ form.addEventListener('submit', (event) =>{
         var editButton = document.createElement("button");
         
         buttons.classList.add("buttons");
-        deleteButton.classList.add("delete-button");
-        editButton.classList.add("edit-button");
+        deleteButton.classList.add("delete-button", index);
+        editButton.classList.add("edit-button", index);
 
         deleteButton.textContent = "Delete";
         editButton.textContent = "Edit";
 
-        
+        book
+
         
         buttons.appendChild(editButton);
         buttons.appendChild(deleteButton);
@@ -91,16 +92,11 @@ form.addEventListener('submit', (event) =>{
         gridContainer.appendChild(div);
     });
 
-
-
-
-
-
-
-
     form.reset();
     modal.open = false;
 })
+
+
 
 
 
