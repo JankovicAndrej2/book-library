@@ -8,40 +8,7 @@ function Book(name, author,number, didRead){
 let library = [];
 
 
-
-const addNewBookButton = document.querySelector('.add-new-book');
-const modal = document.querySelector('.add-new-book-dialog');
-const closeNewBook = document.querySelector('.close-new-book');
-var form = document.getElementById('form');
-var gridContainer = document.querySelector(".grid-container");
-
-
-addNewBookButton.addEventListener('click', () =>{
-    modal.open = true;
-});
-
-closeNewBook.addEventListener('click', () =>{
-    modal.open = false;
-    form.reset();
-});
-
-
-form.addEventListener('submit', (event) =>{
-    event.preventDefault();
-    let name = document.getElementById('name-of-author').value;
-    let nameOfBook = document.getElementById('name-of-book').value;
-    let numberOfPages =document.getElementById('number-of-pages').value;
-
-    if (numberOfPages == ""){numberOfPages = "0";}
-    
-
-    let didYouRead = document.getElementById('did-you-read').checked;
-
-    let tempBook = new Book(name, nameOfBook, numberOfPages, didYouRead);
-    library.push(tempBook);
-
-
-    // Vizualiziranje librarija
+function VisualizeLibrary(){
     gridContainer.replaceChildren();
     
     library.forEach((element, index) => {
@@ -69,7 +36,20 @@ form.addEventListener('submit', (event) =>{
 
 
         var deleteButton = document.createElement("button");
+
+        //brisanje knjige
+        deleteButton.addEventListener('click', ()=>{
+            library.splice(index,1);
+            VisualizeLibrary();
+            form.reset();
+        })
+
+
+
         var editButton = document.createElement("button");
+        
+
+
         
         buttons.classList.add("buttons");
         deleteButton.classList.add("delete-button");
@@ -91,6 +71,59 @@ form.addEventListener('submit', (event) =>{
         div.classList.add("parent");
         gridContainer.appendChild(div);
     });
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const addNewBookButton = document.querySelector('.add-new-book');
+const modal = document.querySelector('.add-new-book-dialog');
+const closeNewBook = document.querySelector('.close-new-book');
+var form = document.getElementById('form');
+var gridContainer = document.querySelector(".grid-container");
+
+
+addNewBookButton.addEventListener('click', () =>{
+    modal.open = true;
+});
+
+closeNewBook.addEventListener('click', () =>{
+    modal.open = false;
+    form.reset();
+});
+
+
+form.addEventListener('submit', (event) =>{
+    event.preventDefault();
+    let name = document.getElementById('name-of-author').value;
+    let nameOfBook = document.getElementById('name-of-book').value;
+    let numberOfPages =document.getElementById('number-of-pages').value;
+
+    if (numberOfPages == ""){numberOfPages = "0";}
+    let didYouRead = document.getElementById('did-you-read').checked;
+
+
+
+    let tempBook = new Book(name, nameOfBook, numberOfPages, didYouRead);
+    library.push(tempBook);
+
+
+
+    VisualizeLibrary();
+    // Vizualiziranje librarija
+
+    
+    
 
     form.reset();
     modal.open = false;
