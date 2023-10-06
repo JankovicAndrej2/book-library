@@ -6,6 +6,12 @@ function Book(name, author,number, didRead){
 }
 
 let library = [];
+const addNewBookButton = document.querySelector('.add-new-book');
+const modal = document.querySelector('.add-new-book-dialog');
+const closeNewBook = document.querySelector('.close-new-book');
+var form = document.getElementById('form');
+var gridContainer = document.querySelector(".grid-container");
+let submitButton = document.getElementById("edit");
 
 
 function VisualizeLibrary(){
@@ -47,7 +53,19 @@ function VisualizeLibrary(){
 
 
         var editButton = document.createElement("button");
-        
+        editButton.addEventListener('click', ()=>{
+            modal.open=true;
+            let name1 = document.getElementById('name-of-author');
+            let nameOfBook1 = document.getElementById('name-of-book');
+            let numberOfPages1 =document.getElementById('number-of-pages');
+
+            submitButton.innerHTML="";
+            submitButton.appendChild(document.createTextNode("Edit"));
+            
+            VisualizeLibrary();
+            form.reset();
+        })
+       
 
 
         
@@ -74,27 +92,10 @@ function VisualizeLibrary(){
 }  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-const addNewBookButton = document.querySelector('.add-new-book');
-const modal = document.querySelector('.add-new-book-dialog');
-const closeNewBook = document.querySelector('.close-new-book');
-var form = document.getElementById('form');
-var gridContainer = document.querySelector(".grid-container");
-
-
 addNewBookButton.addEventListener('click', () =>{
     modal.open = true;
+    submitButton.innerHTML="";
+    submitButton.appendChild(document.createTextNode("Submit"));
 });
 
 closeNewBook.addEventListener('click', () =>{
@@ -128,6 +129,11 @@ form.addEventListener('submit', (event) =>{
     form.reset();
     modal.open = false;
 })
+
+
+
+
+
 
 
 
