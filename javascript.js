@@ -72,13 +72,13 @@ form.addEventListener('submit', (event) =>{
         var editButton = document.createElement("button");
         
         buttons.classList.add("buttons");
-        deleteButton.classList.add("delete-button", index);
-        editButton.classList.add("edit-button", index);
+        deleteButton.classList.add("delete-button");
+        editButton.classList.add("edit-button");
 
         deleteButton.textContent = "Delete";
         editButton.textContent = "Edit";
 
-        book
+        
 
         
         buttons.appendChild(editButton);
